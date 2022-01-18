@@ -74,11 +74,10 @@ public class Butler {
 
     protected String viewList() {
         int i = 0;
-        String output = "Here are the tasks in your list master: \n";
+        String output = "Here are the tasks in your list Master: \n";
         while (i < tasks.size()) {
             Task task = tasks.get(i);
-            output += String.valueOf(i + 1) + ". " + "[" + task.getStatusIcon() + "] " +
-                    task.description + "\n";
+            output += String.valueOf(i + 1) + ". " + task.toString() + "\n";
             i++;
         }
         return output;
