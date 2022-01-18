@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Butler {
 
-    ArrayList<String> arrayList;
+    ArrayList<Task> tasks;
 
     public static void main(String[] args) {
         Butler butler = new Butler();
@@ -27,28 +27,58 @@ public class Butler {
                 System.out.println(butler.viewList());
                 continue;
             }
+            if (input.contains("mark"))  {
+                String[] stringArray = input.split(" ");
+                if (stringArray[0].equals("mark")) {
+                    String message = butler.markAsDone(Integer.parseInt(stringArray[1]) - 1);
+                    System.out.println(message);
+                }
+                if (stringArray[0].equals("unmark")) {
+                    String message = butler.markAsUndone(Integer.parseInt(stringArray[1]) - 1);
+                    System.out.println(message);
+                }
+                continue;
+            }
             System.out.println(butler.addToList(input));
         }
     }
 
     public Butler() {
-        arrayList = new ArrayList<>();
+        tasks = new ArrayList<>();
     }
 
-    public String greet() {
+    protected String greet() {
         return "Greetings! I'm Butler!\n" + "What can I do for you today Master?\n";
     }
 
-    public String addToList(String string) {
-        arrayList.add(string);
+    protected String addToList(String string) {
+        Task task = new Task(string);
+        tasks.add(task);
         return "added: " + string;
     }
 
-    public String viewList() {
+    protected String markAsDone(int index) {
+        Task task = tasks.get(index);
+        task.markAsDone();
+        String string = "Congratulations Master, I've marked this task as done: \n";
+        return string + "   [" + task.getStatusIcon() + "] " + task.description + "\n";
+    }
+
+    protected String markAsUndone(int index) {
+        Task task = tasks.get(index);
+        task.markAsUndone();
+        String string = "Very well Master, I've marked this task as not done yet: \n";
+        return string + "   [" + task.getStatusIcon() + "] " + task.description + "\n";
+    }
+
+
+    protected String viewList() {
         int i = 0;
-        String output = "";
-        while (i < arrayList.size()) {
-            output += String.valueOf(i + 1) + ". " + arrayList.get(i) + "\n";
+        String output = "Here are the tasks in your list master: \n";
+        while (i < tasks.size()) {
+            Task task = tasks.get(i);
+            output += String.valueOf(i + 1) + ". " + "[" + task.getStatusIcon() + "] " +
+                    task.description + "\n";
             i++;
         }
         return output;
