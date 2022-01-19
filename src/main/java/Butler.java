@@ -14,7 +14,9 @@ public class Butler {
 
         while (true) {
             String input = scanner.nextLine();
-            if (input.equals("bye")) {
+            String[] stringArray = input.split(" ");
+            String firstWord = stringArray[0];
+            if (firstWord.equals("bye")) {
                 System.out.println("Farewell Master. Glad to be of service.");
                 try {
                     Thread.sleep(1000);
@@ -23,22 +25,69 @@ public class Butler {
                 }
                 System.exit(0);
             }
-            if (input.equals("list")) {
+            if (firstWord.equals("list") && stringArray.length == 1) {
                 System.out.println(butler.viewList());
                 continue;
             }
             if (input.contains("mark"))  {
-                String[] stringArray = input.split(" ");
                 if (stringArray[0].equals("mark")) {
                     String message = butler.markAsDone(Integer.parseInt(stringArray[1]) - 1);
                     System.out.println(message);
+                    continue;
                 }
                 if (stringArray[0].equals("unmark")) {
                     String message = butler.markAsUndone(Integer.parseInt(stringArray[1]) - 1);
                     System.out.println(message);
+                    continue;
                 }
+            }
+            if (firstWord.equals("deadline")) {
+                StringBuilder description = new StringBuilder();
+                String[] dStringArray = input.split(" /by ");
+                String[] strArray1 = dStringArray[0].split(" ");
+                for (int i = 1; i < strArray1.length; i++) {
+                    if (i == strArray1.length - 1) {
+                        description.append(strArray1[i]);
+                    } else {
+                        description.append(strArray1[i] + " ");
+                    }
+                }
+                String message = butler.addDeadlineToList(description.toString(), dStringArray[1]);
+                System.out.println(message);
                 continue;
             }
+            if (firstWord.equals("todo")) {
+                StringBuilder description = new StringBuilder();
+                String[] dStringArray = input.split(" /at ");
+                String[] strArray1 = dStringArray[0].split(" ");
+                for (int i = 1; i < strArray1.length; i++) {
+                    if (i == strArray1.length - 1) {
+                        description.append(strArray1[i]);
+                    } else {
+                        description.append(strArray1[i] + " ");
+                    }
+                }
+                String message = butler.addToDoToList(description.toString());
+                System.out.println(message);
+                continue;
+            }
+            if (firstWord.equals("event")) {
+                StringBuilder description = new StringBuilder();
+                String[] dStringArray = input.split(" /at ");
+                String[] strArray1 = dStringArray[0].split(" ");
+                for (int i = 1; i < strArray1.length; i++) {
+                    if (i == strArray1.length - 1) {
+                        description.append(strArray1[i]);
+                    } else {
+                        description.append(strArray1[i] + " ");
+                    }
+                }
+                String message = butler.addEventToList(description.toString(),dStringArray[1]);
+                System.out.println(message);
+                continue;
+            }
+
+
             System.out.println(butler.addToList(input));
         }
     }
@@ -55,6 +104,27 @@ public class Butler {
         Task task = new Task(string);
         tasks.add(task);
         return "added: " + string;
+    }
+
+    protected String addDeadlineToList(String description, String dateTime) {
+        Task task = new Deadline(description, dateTime);
+        tasks.add(task);
+        return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString() +
+                "\nThere are now " + tasks.size() + " tasks in your list.\n";
+    }
+
+    protected String addToDoToList(String description) {
+        Task task = new ToDo(description);
+        tasks.add(task);
+        return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString() +
+                "\nThere are now " + tasks.size() + " tasks in your list.\n";
+    }
+
+    protected String addEventToList(String description, String dateTime) {
+        Task task = new Event(description, dateTime);
+        tasks.add(task);
+        return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString() +
+                "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
 
     protected String markAsDone(int index) {
