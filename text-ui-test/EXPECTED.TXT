@@ -55,10 +55,23 @@ Here are the tasks in your list Master:
 2. [D][ ] return book (by: Sunday)
 3. [E][ ] project meeting (at: Mon 2-4pm)
 
+Error. Sorry Master, but a delete command must only be followed by one Integer.
 
-Error. Master, list item number 4 does not exist.
+Error. Sorry Master, but a delete command must only be followed by one Integer.
 
-Error. Master, list item number 4 does not exist.
+Noted Master. I'll remove this task from your list.
+   [T][ ] borrow book
+ There are now 2 tasks in your list.
+
+Here are the tasks in your list Master: 
+1. [D][ ] return book (by: Sunday)
+2. [E][ ] project meeting (at: Mon 2-4pm)
+
+Error. Master, list item number 3 does not exist.
+
+Error. Master, list item number 3 does not exist.
+
+Error. Sorry Master, but a mark or unmark command must be followed by one Integer.
 
 Error. Sorry Master, but the date/time of a Deadline cannot be empty.
 
@@ -71,8 +84,6 @@ Error. Sorry Master, but the date/time of an Event cannot be empty.
 Error. Sorry Master, but the description of an Event cannot be empty.
 
 Error. Sorry Master, but the description of an Event cannot be empty.
-
-Error. Sorry Master, but the description of a ToDo cannot be empty.
 
 I'm sorry Master, but I do not know what that means. Please provide a valid command.
 

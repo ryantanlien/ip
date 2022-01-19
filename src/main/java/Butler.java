@@ -30,12 +30,6 @@ public class Butler {
         return "Greetings! I'm Butler!\n" + "What can I do for you today Master?\n";
     }
 
-    protected String addToList(String string) {
-        Task task = new Task(string);
-        tasks.add(task);
-        return "added: " + string;
-    }
-
     protected String addDeadlineToList(String description, String dateTime) throws ButlerInputException {
         if (description.equals("")) {
             throw new ButlerInputException("Error. Sorry Master, but the description of a Deadline cannot be empty.\n");
@@ -72,9 +66,20 @@ public class Butler {
                 "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
 
+    protected String deleteTaskFromList(int index) throws ButlerInputException {
+        if (index >= tasks.size()) {
+            throw new ButlerInputException("Error. Master list item number "
+                    + String.valueOf(index+1) + "does not exist. \n");
+        }
+        Task task = tasks.remove(index);
+        return  "Noted Master. I'll remove this task from your list.\n" + "   " + task.toString() +
+                "\n There are now " + tasks.size() + " tasks in your list.\n";
+    }
+
     protected String markAsDone(int index) throws ButlerInputException {
         if (index >= tasks.size()) {
-            throw new ButlerInputException("Error. Master, list item number " + String.valueOf(index+1) + " does not exist.\n");
+            throw new ButlerInputException("Error. Master, list item number "
+                    + String.valueOf(index+1) + " does not exist.\n");
         }
         Task task = tasks.get(index);
         task.markAsDone();
@@ -84,7 +89,8 @@ public class Butler {
 
     protected String markAsUndone(int index) throws ButlerInputException {
         if (index >= tasks.size()) {
-            throw new ButlerInputException("Error. Master, list item number " + String.valueOf(index+1) + " does not exist.\n");
+            throw new ButlerInputException("Error. Master, list item number "
+                    + String.valueOf(index+1) + " does not exist.\n");
         }
         Task task = tasks.get(index);
         task.markAsUndone();
@@ -123,19 +129,22 @@ public class Butler {
         if (input.contains("mark"))  {
             if (stringArray.length != 2) {
                 throw new ButlerInputException("Error. Sorry Master, " +
-                        "but a mark or unmark command can only be followed by an Integer.\n");
+                        "but a mark or unmark command must be followed by one Integer.\n");
             }
-
-            if (stringArray[0].equals("mark")) {
-                String message = this.markAsDone(Integer.parseInt(stringArray[1]) - 1);
-                System.out.println(message);
-                return;
+            try {
+                if (stringArray[0].equals("mark")) {
+                    String message = this.markAsDone(Integer.parseInt(stringArray[1]) - 1);
+                    System.out.println(message);
+                }
+                if (stringArray[0].equals("unmark")) {
+                    String message = this.markAsUndone(Integer.parseInt(stringArray[1]) - 1);
+                    System.out.println(message);
+                }
+            } catch (NumberFormatException exception) {
+                System.out.println("Error. Sorry Master, " +
+                        "but a mark or unmark command must be followed by one Integer.\n");
             }
-            if (stringArray[0].equals("unmark")) {
-                String message = this.markAsUndone(Integer.parseInt(stringArray[1]) - 1);
-                System.out.println(message);
-                return;
-            }
+            return;
         }
         if (firstWord.equals("deadline")) {
             StringBuilder description = new StringBuilder();
@@ -199,6 +208,20 @@ public class Butler {
                 System.out.println(message);
             } catch (ButlerInputException exception) {
                 System.out.println(exception.getMessage());
+            }
+            return;
+        }
+        if (firstWord.equals("delete")) {
+            if (stringArray.length != 2) {
+                throw new ButlerInputException("Error. Sorry Master, " +
+                        "but a delete command must only be followed by one Integer.\n");
+            }
+            try {
+                String message = this.deleteTaskFromList(Integer.parseInt(stringArray[1]) - 1);
+                System.out.println(message);
+            } catch (NumberFormatException exception) {
+                System.out.println("Error. Sorry Master, " +
+                        "but a delete command must only be followed by one Integer.\n");
             }
             return;
         }
