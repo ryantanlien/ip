@@ -13,4 +13,14 @@ unmark 1
 unmark 2
 unmark 3
 list
+mark 4
+unmark 4
+deadline eat food /by 
+deadline /by Sat 4pm
+deadline /by 
+event eat food /at 
+event /at Sat 4pm
+event /at 
+todo
+blah
 bye
