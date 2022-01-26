@@ -8,6 +8,8 @@ public class Butler {
 
     public static void main(String[] args) {
         Butler butler = new Butler();
+        //Testing
+        butler.test();
         String greetings = butler.greet();
         System.out.println(greetings);
 
@@ -25,6 +27,10 @@ public class Butler {
 
     public Butler() {
         tasks = new ArrayList<>();
+    }
+
+    protected void test() {
+        FileManager.writeTaskListToFile(tasks);
     }
 
     protected String greet() {
