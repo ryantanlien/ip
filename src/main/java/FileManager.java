@@ -5,10 +5,13 @@ import java.util.ArrayList;
 
 public class FileManager {
 
-//    final static String FILE_NAME = "list.txt";
     final static String PATH_NAME = "src/main/resources/list.txt";
 
     private static File createFile(String pathName) {
+        File folder = new File("src/main/resources");
+        if (!folder.isDirectory()) {
+            folder.mkdirs();
+        }
         File file = new File(pathName);
         try {
             if (file.createNewFile()) {
@@ -37,6 +40,13 @@ public class FileManager {
     }
 
     public static void writeTaskListToFile(ArrayList<Task> tasks) {
-        writeToFile(getFileObject(), "hello");
+        int i = 0;
+        StringBuilder fileOutput = new StringBuilder();
+        while (i < tasks.size()) {
+            Task task = tasks.get(i);
+            fileOutput.append(String.valueOf(i + 1)).append(". ").append(task.toString()).append("\n");
+            i++;
+        }
+        writeToFile(getFileObject(), fileOutput.toString());
     }
 }
