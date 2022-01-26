@@ -7,7 +7,6 @@ public class Butler {
 
     public static void main(String[] args) {
         Butler butler = new Butler();
-        butler.test();
         String greetings = butler.greet();
         System.out.println(greetings);
 
@@ -26,7 +25,7 @@ public class Butler {
     public Butler() {
         tasks = new ArrayList<>();
     }
-    
+
     protected String greet() {
         return "Greetings! I'm Butler!\n" + "What can I do for you today Master?\n";
     }
