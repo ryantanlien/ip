@@ -11,6 +11,7 @@ import butler.command.ListCommand;
 import butler.command.MarkCommand;
 import butler.command.TodoCommand;
 import butler.command.UnmarkCommand;
+import butler.command.FindCommand;
 
 public class Parser {
 
