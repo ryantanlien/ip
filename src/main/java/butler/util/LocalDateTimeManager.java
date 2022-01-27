@@ -1,11 +1,13 @@
 package butler.util;
 
 import java.time.DateTimeException;
+import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+
 
 public class LocalDateTimeManager {
+
     public static String toLocalDateTime(String dateTime) {
         String[] dateThenTime = dateTime.split(" ");
         if (dateThenTime.length != 2) {

@@ -3,6 +3,7 @@ package butler.task;
 import butler.util.LocalDateTimeManager;
 
 public class Deadline extends Task {
+
     private String dateAndTime;
     private String localDateTime;
 

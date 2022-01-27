@@ -1,11 +1,11 @@
 package butler.command;
 
 import butler.ButlerInputException;
-import butler.util.Storage;
 import butler.TaskList;
+import butler.util.Storage;
 import butler.util.Ui;
 
-public class EventCommand extends Command{
+public class EventCommand extends Command {
     private String description;
     private String dateTime;
 

@@ -1,11 +1,11 @@
 package butler.command;
 
 import butler.ButlerInputException;
-import butler.util.Storage;
 import butler.TaskList;
+import butler.util.Storage;
 import butler.util.Ui;
 
-public class UnmarkCommand extends Command{
+public class UnmarkCommand extends Command {
 
     int index;
 

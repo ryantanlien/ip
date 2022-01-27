@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Storage {
+
     private final static String DEFAULT_PATH_NAME = "src/main/resources/list.txt";
     private String PATH_NAME;
 
