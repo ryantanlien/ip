@@ -6,6 +6,16 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class LocalDateTimeManager {
+
+    /**
+     * Reformats a date and time string that follows a LocalDate and LocalTime format.
+     * The default implementation is to reformat a time that follows the ISO_LOCAL_TIME format, and a date that follows
+     * the ISO_LOCAL_DATE format.
+     * If the date or time cannot be formatted, handles the DateTimeException and returns a null value.
+     *
+     * @param dateTime String representation of date and time.
+     * @return Formatted date and time or null.
+     */
     public static String toLocalDateTime(String dateTime) {
         String[] dateThenTime = dateTime.split(" ");
         if (dateThenTime.length != 2) {
