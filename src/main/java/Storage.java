@@ -1,13 +1,20 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
-public class FileManager {
+public class Storage {
+    private final static String DEFAULT_PATH_NAME = "src/main/resources/list.txt";
+    private String PATH_NAME;
 
-    final static String PATH_NAME = "src/main/resources/list.txt";
+    public Storage(String pathName) {
+        if (pathName.equals("")) {
+            PATH_NAME = DEFAULT_PATH_NAME;
+        } else {
+            PATH_NAME = pathName;
+        }
+    }
 
-    private static File createFile(String pathName) {
+    private File createFile(String pathName) {
         File folder = new File("src/main/resources");
         if (!folder.isDirectory()) {
             folder.mkdirs();
@@ -23,12 +30,12 @@ public class FileManager {
         return file;
     }
 
-    private static File getFileObject() {
+    private File getFileObject() {
         File file = createFile(PATH_NAME);
         return file;
     }
 
-    private static void writeToFile(File file, String string) {
+    private void writeToFile(File file, String string) {
         FileWriter fileWriter;
         try {
             fileWriter = new FileWriter(file);
@@ -39,7 +46,7 @@ public class FileManager {
         }
     }
 
-    public static void writeTaskListToFile(ArrayList<Task> tasks) {
+    public void writeTaskListToFile(TaskList tasks) {
         int i = 0;
         StringBuilder fileOutput = new StringBuilder();
         while (i < tasks.size()) {

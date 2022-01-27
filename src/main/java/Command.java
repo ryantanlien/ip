@@ -1,11 +1,3 @@
-public enum Command {
-    TODO,
-    DEADLINE,
-    EVENT,
-    DELETE,
-    LIST,
-    MARK,
-    UNMARK,
-    INVALID,
-    BYE
+public abstract class Command {
+    public abstract void execute(TaskList taskList, Storage storage, Ui ui) throws ButlerInputException;
 }

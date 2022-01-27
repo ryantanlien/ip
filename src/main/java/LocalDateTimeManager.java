@@ -6,6 +6,9 @@ import java.time.format.DateTimeFormatter;
 public class LocalDateTimeManager {
     public static String toLocalDateTime(String dateTime) {
         String[] dateThenTime = dateTime.split(" ");
+        if (dateThenTime.length != 2) {
+            return "";
+        }
         String date = dateThenTime[0];
         String time = dateThenTime[1];
         try {
@@ -16,7 +19,7 @@ public class LocalDateTimeManager {
             if (newLocalTime.length() == 3) {
                 newLocalTime = "0" + newLocalTime;
             }
-            return newLocalDate.toString() + " " + newLocalTime.toString();
+            return newLocalDate + " " + newLocalTime;
         } catch (DateTimeException exception) {
             System.out.println("Input date followed by time");
             System.out.println("Date must be in the format: YY-MM-DD");
