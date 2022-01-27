@@ -1,3 +1,5 @@
+package butler.util;
+
 import java.util.Scanner;
 
 public class Ui {

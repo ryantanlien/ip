@@ -1,14 +1,18 @@
-public class Event extends Task {
-    String dateAndTime;
-    String localDateTime;
+package butler.task;
 
-    protected Event(String description, String dateAndTime) {
+import butler.util.LocalDateTimeManager;
+
+public class Event extends Task {
+    private String dateAndTime;
+    private String localDateTime;
+
+    public Event(String description, String dateAndTime) {
         super(description);
         this.dateAndTime = dateAndTime;
         localDateTime = LocalDateTimeManager.toLocalDateTime(dateAndTime);
     }
 
-    protected String getTaskType() {
+    public String getTaskType() {
         return "[E]";
     }
 

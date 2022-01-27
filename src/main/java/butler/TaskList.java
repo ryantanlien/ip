@@ -1,3 +1,10 @@
+package butler;
+
+import butler.task.Deadline;
+import butler.task.Event;
+import butler.task.Task;
+import butler.task.ToDo;
+
 import java.util.ArrayList;
 
 public class TaskList {
@@ -8,7 +15,7 @@ public class TaskList {
         tasks = new ArrayList<>();
     }
 
-    protected Task get(int index) {
+    public Task get(int index) {
         return tasks.get(index);
     }
 
@@ -16,12 +23,12 @@ public class TaskList {
         return tasks.size();
     }
 
-    protected String addDeadlineToList(String description, String dateTime) throws ButlerInputException {
+    public String addDeadlineToList(String description, String dateTime) throws ButlerInputException {
         if (description.equals("")) {
-            throw new ButlerInputException("Error. Sorry Master, but the description of a Deadline cannot be empty.\n");
+            throw new ButlerInputException("Error. Sorry Master, but the description of a butler.task.Deadline cannot be empty.\n");
         }
         if (dateTime.equals("")) {
-            throw new ButlerInputException("Error. Sorry Master, but the date/time of a Deadline cannot be empty.\n");
+            throw new ButlerInputException("Error. Sorry Master, but the date/time of a butler.task.Deadline cannot be empty.\n");
         }
         Task task = new Deadline(description, dateTime);
         tasks.add(task);
@@ -29,9 +36,9 @@ public class TaskList {
                 "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
 
-    protected String addToDoToList(String description) throws ButlerInputException {
+    public String addToDoToList(String description) throws ButlerInputException {
         if (description.equals("")) {
-            throw new ButlerInputException("Error. Sorry Master, but the description of a ToDo cannot be empty.\n");
+            throw new ButlerInputException("Error. Sorry Master, but the description of a butler.task.ToDo cannot be empty.\n");
         }
         Task task = new ToDo(description);
         tasks.add(task);
@@ -39,12 +46,12 @@ public class TaskList {
                 "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
 
-    protected String addEventToList(String description, String dateTime) throws ButlerInputException {
+    public String addEventToList(String description, String dateTime) throws ButlerInputException {
         if (description.equals("")) {
-            throw new ButlerInputException("Error. Sorry Master, but the description of an Event cannot be empty.\n");
+            throw new ButlerInputException("Error. Sorry Master, but the description of an butler.task.Event cannot be empty.\n");
         }
         if (dateTime.equals("")) {
-            throw new ButlerInputException("Error. Sorry Master, but the date/time of an Event cannot be empty.\n");
+            throw new ButlerInputException("Error. Sorry Master, but the date/time of an butler.task.Event cannot be empty.\n");
         }
         Task task = new Event(description, dateTime);
         tasks.add(task);
@@ -52,7 +59,7 @@ public class TaskList {
                 "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
 
-    protected String deleteTaskFromList(int index) throws ButlerInputException {
+    public String deleteTaskFromList(int index) throws ButlerInputException {
         if (index >= tasks.size()) {
             throw new ButlerInputException("Error. Master list item number "
                     + String.valueOf(index + 1) + "does not exist. \n");
@@ -62,7 +69,7 @@ public class TaskList {
                 "\n There are now " + tasks.size() + " tasks in your list.\n";
     }
 
-    protected String markAsDone(int index) throws ButlerInputException {
+    public String markAsDone(int index) throws ButlerInputException {
         if (index >= tasks.size()) {
             throw new ButlerInputException("Error. Master, list item number "
                     + String.valueOf(index + 1) + " does not exist.\n");
@@ -70,10 +77,10 @@ public class TaskList {
         Task task = tasks.get(index);
         task.markAsDone();
         String string = "Congratulations Master, I've marked this task as done: \n";
-        return string + "   [" + task.getStatusIcon() + "] " + task.description + "\n";
+        return string + "   [" + task.getStatusIcon() + "] " + task.getDescription() + "\n";
     }
 
-    protected String markAsUndone(int index) throws ButlerInputException {
+    public String markAsUndone(int index) throws ButlerInputException {
         if (index >= tasks.size()) {
             throw new ButlerInputException("Error. Master, list item number "
                     + String.valueOf(index + 1) + " does not exist.\n");
@@ -81,10 +88,10 @@ public class TaskList {
         Task task = tasks.get(index);
         task.markAsUndone();
         String string = "Very well Master, I've marked this task as not done yet: \n";
-        return string + "   [" + task.getStatusIcon() + "] " + task.description + "\n";
+        return string + "   [" + task.getStatusIcon() + "] " + task.getDescription() + "\n";
     }
 
-    protected String viewList() {
+    public String viewList() {
         int i = 0;
         String output = "Here are the tasks in your list Master: \n";
         while (i < tasks.size()) {

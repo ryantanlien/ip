@@ -1,17 +1,21 @@
-public class DeadlineCommand extends Command {
+package butler.command;
 
-    private String description;
-    private String dateTime;
+import butler.ButlerInputException;
+import butler.util.Storage;
+import butler.TaskList;
+import butler.util.Ui;
 
-    public DeadlineCommand(String description, String dateTime) {
+public class TodoCommand extends Command {
+    String description;
+
+    public TodoCommand(String description) {
         this.description = description;
-        this.dateTime = dateTime;
     }
 
     @Override
     public void execute(TaskList taskList, Storage storage, Ui ui) {
         try {
-            String message = taskList.addDeadlineToList(description, dateTime);
+            String message = taskList.addToDoToList(description);
             storage.writeTaskListToFile(taskList);
             ui.printMessage(message);
         } catch (ButlerInputException exception) {

@@ -1,4 +1,4 @@
-Greetings! I'm Butler!
+Greetings! I'm butler.Butler!
 What can I do for you today Master?
 
 Noted Master. I'll add this task to your list.
@@ -73,17 +73,17 @@ Error. Master, list item number 3 does not exist.
 
 Error. Sorry Master, but a mark or unmark command must be followed by one Integer.
 
-Error. Sorry Master, but the date/time of a Deadline cannot be empty.
+Error. Sorry Master, but the date/time of a butler.task.Deadline cannot be empty.
 
-Error. Sorry Master, but the description of a Deadline cannot be empty.
+Error. Sorry Master, but the description of a butler.task.Deadline cannot be empty.
 
-Error. Sorry Master, but the description of a Deadline cannot be empty.
+Error. Sorry Master, but the description of a butler.task.Deadline cannot be empty.
 
-Error. Sorry Master, but the date/time of an Event cannot be empty.
+Error. Sorry Master, but the date/time of an butler.task.Event cannot be empty.
 
-Error. Sorry Master, but the description of an Event cannot be empty.
+Error. Sorry Master, but the description of an butler.task.Event cannot be empty.
 
-Error. Sorry Master, but the description of an Event cannot be empty.
+Error. Sorry Master, but the description of an butler.task.Event cannot be empty.
 
 I'm sorry Master, but I do not know what that means. Please provide a valid command.
 

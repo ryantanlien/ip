@@ -1,3 +1,10 @@
+package butler;
+
+import butler.command.Command;
+import butler.util.Parser;
+import butler.util.Storage;
+import butler.util.Ui;
+
 public class Butler {
 
     public static void main(String[] args) {
@@ -23,6 +30,6 @@ public class Butler {
     }
 
     protected String greet() {
-        return "Greetings! I'm Butler!\n" + "What can I do for you today Master?\n";
+        return "Greetings! I'm butler.Butler!\n" + "What can I do for you today Master?\n";
     }
 }

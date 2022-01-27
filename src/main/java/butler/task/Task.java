@@ -1,22 +1,28 @@
-public class Task {
-    protected String description;
-    protected boolean isDone;
+package butler.task;
 
-    protected Task(String description) {
+public class Task {
+    private String description;
+    private boolean isDone;
+
+    public Task(String description) {
         this.description = description;
         this.isDone = false;
     }
 
-    protected String getStatusIcon() {
+    public String getDescription() {
+        return this.description;
+    }
+
+    public String getStatusIcon() {
         return (this.isDone ? "X" : " ");
     }
 
-    protected boolean markAsDone() {
+    public boolean markAsDone() {
         this.isDone = true;
         return isDone;
     }
 
-    protected boolean markAsUndone() {
+    public boolean markAsUndone() {
         this.isDone = false;
         return this.isDone;
     }

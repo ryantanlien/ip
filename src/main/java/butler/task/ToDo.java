@@ -1,10 +1,12 @@
-public class ToDo extends Task{
+package butler.task;
 
-    protected ToDo(String description) {
+public class ToDo extends Task {
+
+    public ToDo(String description) {
         super(description);
     }
 
-    protected String getTaskType() {
+    public String getTaskType() {
         return "[T]";
     }
 
