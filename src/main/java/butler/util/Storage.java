@@ -8,9 +8,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Storage {
+
+    /* Default path for storage file. */
     private final static String DEFAULT_PATH_NAME = "src/main/resources/list.txt";
+    /* Actual path for storage file. */
     private String PATH_NAME;
 
+    /**
+     * Constructs a Storage object and intialises actual path to given path.
+     * If no path is given, actual path is default path.
+     *
+     * @param pathName Given path.
+     */
     public Storage(String pathName) {
         if (pathName.equals("")) {
             PATH_NAME = DEFAULT_PATH_NAME;
@@ -51,6 +60,11 @@ public class Storage {
         }
     }
 
+    /**
+     * Writes contents of taskList to the file at actual path.
+     *
+     * @param tasks A managed list of tasks.
+     */
     public void writeTaskListToFile(TaskList tasks) {
         int i = 0;
         StringBuilder fileOutput = new StringBuilder();

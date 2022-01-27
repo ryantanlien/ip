@@ -6,6 +6,14 @@ import butler.util.Ui;
 
 public class ByeCommand extends Command{
 
+    /**
+     * Executes command behavior.
+     * In this case it prints a farewell message
+     *
+     * @param taskList A managed list of tasks.
+     * @param storage A handler class that handles file I/O, storing taskList details in a file.
+     * @param ui A handler class that handles user input and output.
+     */
     @Override
     public void execute(TaskList taskList, Storage storage, Ui ui) {
         ui.printMessage("Farewell Master. Glad to be of service.");

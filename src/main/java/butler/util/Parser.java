@@ -5,6 +5,22 @@ import butler.command.*;
 
 public class Parser {
 
+    /**
+     * Parses user input and check if it matches any predefined commands.
+     * Predefined commands are:
+     * bye
+     * list
+     * mark
+     * unmark
+     * todo
+     * deadline
+     * event
+     * delete
+     *
+     * @param input User input.
+     * @return Command Relevant command to execute given the input.
+     * @throws ButlerInputException This exception is thrown via the InvalidCommand if input matches no given commands.
+     */
     public static Command parse(String input) throws ButlerInputException {
         String[] stringArray = input.split(" ");
         String firstWord = stringArray[0];
