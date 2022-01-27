@@ -23,6 +23,19 @@ public class TaskList {
         return tasks.size();
     }
 
+    public String find(String searchString) {
+        int i = 0;
+        String output = "Here are the matching tasks in your list, Master: \n";
+        while (i < tasks.size()) {
+            Task task = tasks.get(i);
+            if (task.getDescription().contains(searchString)) {
+                output += String.valueOf(i + 1) + ". " + task.toString() + "\n";
+            }
+            i++;
+        }
+        return output;
+    }
+
     public String addDeadlineToList(String description, String dateTime) throws ButlerInputException {
         if (description.equals("")) {
             throw new ButlerInputException("Error. Sorry Master, but the description of a butler.task.Deadline cannot be empty.\n");

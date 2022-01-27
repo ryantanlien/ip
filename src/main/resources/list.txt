@@ -1,1 +1,2 @@
-1. [T][ ] borrow book
+1. [T][X] read book
+2. [D][X] return book (by: June 6th)
