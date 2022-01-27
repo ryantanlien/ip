@@ -3,6 +3,7 @@ package butler.task;
 import butler.util.LocalDateTimeManager;
 
 public class Event extends Task {
+    
     /* String representation of date and time not following any format */
     private String dateAndTime;
     /* String representation of formatted LocalDateTime objects */

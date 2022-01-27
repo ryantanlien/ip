@@ -1,7 +1,7 @@
 package butler.command;
 
-import butler.util.Storage;
 import butler.TaskList;
+import butler.util.Storage;
 import butler.util.Ui;
 
 public class ListCommand extends Command {

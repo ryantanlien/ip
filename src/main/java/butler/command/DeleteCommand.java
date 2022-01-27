@@ -1,8 +1,8 @@
 package butler.command;
 
 import butler.ButlerInputException;
-import butler.util.Storage;
 import butler.TaskList;
+import butler.util.Storage;
 import butler.util.Ui;
 
 public class DeleteCommand extends Command {

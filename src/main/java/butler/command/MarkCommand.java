@@ -1,11 +1,11 @@
 package butler.command;
 
 import butler.ButlerInputException;
-import butler.util.Storage;
 import butler.TaskList;
+import butler.util.Storage;
 import butler.util.Ui;
 
-public class MarkCommand extends Command{
+public class MarkCommand extends Command {
 
     /* Index of taskList that is to be marked */
     int index;
