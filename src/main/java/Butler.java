@@ -1,4 +1,3 @@
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -40,6 +39,7 @@ public class Butler {
         }
         Task task = new Deadline(description, dateTime);
         tasks.add(task);
+        FileManager.writeTaskListToFile(tasks);
         return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString() +
                 "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
@@ -50,6 +50,7 @@ public class Butler {
         }
         Task task = new ToDo(description);
         tasks.add(task);
+        FileManager.writeTaskListToFile(tasks);
         return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString() +
                 "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
@@ -63,6 +64,7 @@ public class Butler {
         }
         Task task = new Event(description, dateTime);
         tasks.add(task);
+        FileManager.writeTaskListToFile(tasks);
         return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString() +
                 "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
@@ -73,6 +75,7 @@ public class Butler {
                     + String.valueOf(index + 1) + "does not exist. \n");
         }
         Task task = tasks.remove(index);
+        FileManager.writeTaskListToFile(tasks);
         return "Noted Master. I'll remove this task from your list.\n" + "   " + task.toString() +
                 "\n There are now " + tasks.size() + " tasks in your list.\n";
     }
@@ -84,6 +87,7 @@ public class Butler {
         }
         Task task = tasks.get(index);
         task.markAsDone();
+        FileManager.writeTaskListToFile(tasks);
         String string = "Congratulations Master, I've marked this task as done: \n";
         return string + "   [" + task.getStatusIcon() + "] " + task.description + "\n";
     }
@@ -95,6 +99,7 @@ public class Butler {
         }
         Task task = tasks.get(index);
         task.markAsUndone();
+        FileManager.writeTaskListToFile(tasks);
         String string = "Very well Master, I've marked this task as not done yet: \n";
         return string + "   [" + task.getStatusIcon() + "] " + task.description + "\n";
     }
