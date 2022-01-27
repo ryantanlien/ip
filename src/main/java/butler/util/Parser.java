@@ -5,7 +5,7 @@ import butler.command.*;
 
 public class Parser {
 
-    protected static Command parse(String input) throws ButlerInputException {
+    public static Command parse(String input) throws ButlerInputException {
         String[] stringArray = input.split(" ");
         String firstWord = stringArray[0];
         if (firstWord.equals("bye")) {

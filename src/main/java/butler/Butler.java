@@ -30,6 +30,6 @@ public class Butler {
     }
 
     protected String greet() {
-        return "Greetings! I'm butler.Butler!\n" + "What can I do for you today Master?\n";
+        return "Greetings! I'm Butler!\n" + "What can I do for you today Master?\n";
     }
 }

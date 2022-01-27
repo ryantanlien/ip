@@ -19,7 +19,7 @@ public class TaskList {
         return tasks.get(index);
     }
 
-    protected int size() {
+    public int size() {
         return tasks.size();
     }
 
