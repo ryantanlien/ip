@@ -3,7 +3,7 @@ package butler.command;
 import butler.ButlerInputException;
 import butler.TaskList;
 import butler.util.Storage;
-import butler.util.Ui;
+import butler.util.ui.Ui;
 
 public class InvalidCommand extends Command {
 

@@ -3,33 +3,34 @@ package butler;
 import butler.command.Command;
 import butler.util.Parser;
 import butler.util.Storage;
-import butler.util.Ui;
+import butler.util.ui.Ui;
+import butler.util.ui.UiApp;
+import javafx.application.Application;
 
 public class Butler {
 
-    public static void main(String[] args) {
-        Butler butler = new Butler();
-        String greetings = butler.greet();
-        Ui ui = new Ui();
-        Storage storage = new Storage("");
-        TaskList taskList = new TaskList();
-        ui.printMessage(greetings);
+    private static Storage storage = new Storage("");
+    private static Ui ui = new Ui();
+    private static TaskList taskList = new TaskList();
 
-        while (true) {
-            String input = ui.getInput();
-            try {
-                Command command = Parser.parse(input);
-                command.execute(taskList, storage, ui);
-            } catch (ButlerInputException exception) {
-                System.out.println(exception.getMessage());
-            }
-        }
+    public static void main(String[] args) {
+        Application.launch(UiApp.class, args);
     }
 
     public Butler() {
     }
 
-    protected String greet() {
+    public static String respond(String input) {
+        try {
+            Command command = Parser.parse(input);
+            command.execute(taskList, storage, ui);
+            return ui.getMessage();
+        } catch (ButlerInputException exception) {
+            return exception.getMessage();
+        }
+    }
+
+    public static String greet() {
         return "Greetings! I'm Butler!\n" + "What can I do for you today Master?\n";
     }
 }

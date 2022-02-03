@@ -3,7 +3,7 @@ package butler.command;
 import butler.ButlerInputException;
 import butler.TaskList;
 import butler.util.Storage;
-import butler.util.Ui;
+import butler.util.ui.Ui;
 
 public class UnmarkCommand extends Command {
 
@@ -33,9 +33,9 @@ public class UnmarkCommand extends Command {
         try {
             String message = taskList.markAsUndone(index);
             storage.writeTaskListToFile(taskList);
-            ui.printMessage(message);
+            ui.setMessage(message);
         } catch (NumberFormatException exception) {
-            ui.printError("Error. Sorry Master, " +
+            throw new ButlerInputException("Error. Sorry Master, " +
                     "but a mark or unmark command must be followed by one Integer.\n");
         }
     }
