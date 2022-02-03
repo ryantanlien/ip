@@ -3,7 +3,7 @@ package butler.command;
 import butler.ButlerInputException;
 import butler.TaskList;
 import butler.util.Storage;
-import butler.util.Ui;
+import butler.util.ui.Ui;
 
 public class TodoCommand extends Command {
 
@@ -29,13 +29,9 @@ public class TodoCommand extends Command {
      * @param ui A handler class that handles user input and output.
      */
     @Override
-    public void execute(TaskList taskList, Storage storage, Ui ui) {
-        try {
-            String message = taskList.addToDoToList(description);
-            storage.writeTaskListToFile(taskList);
-            ui.printMessage(message);
-        } catch (ButlerInputException exception) {
-            ui.printError(exception.getMessage());
-        }
+    public void execute(TaskList taskList, Storage storage, Ui ui) throws ButlerInputException {
+        String message = taskList.addToDoToList(description);
+        storage.writeTaskListToFile(taskList);
+        ui.setMessage(message);
     }
 }

@@ -41,7 +41,7 @@ public class Event extends Task {
         if (!localDateTime.equals("")) {
             return this.getTaskType() + super.toString() + " " + localDateTime;
         }
-        return this.getTaskType() + super.toString() + " (at: " + dateAndTime + ")";
+        return this.getTaskType() + super.toString() + " (at: " + dateAndTime + ")\n";
     }
 }
 

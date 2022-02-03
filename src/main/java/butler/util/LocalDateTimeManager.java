@@ -34,10 +34,9 @@ public class LocalDateTimeManager {
             }
             return newLocalDate + " " + newLocalTime;
         } catch (DateTimeException exception) {
-            System.out.println("Input date followed by time");
-            System.out.println("Date must be in the format: YY-MM-DD");
-            System.out.println("Time must be in the format: hh:mm:ss\n");
+            return "Input date followed by time\n"
+                + "Date must be in the format: YY-MM-DD\n"
+                + "Time must be in the format: hh:mm:ss\n";
         }
-        return "";
     }
 }

@@ -2,7 +2,7 @@ package butler.command;
 
 import butler.TaskList;
 import butler.util.Storage;
-import butler.util.Ui;
+import butler.util.ui.Ui;
 
 public class FindCommand extends Command {
     private String searchString;
@@ -14,6 +14,6 @@ public class FindCommand extends Command {
     @Override
     public void execute(TaskList taskList, Storage storage, Ui ui) {
         String message = taskList.find(searchString);
-        ui.printMessage(message);
+        ui.setMessage(message);
     }
 }

@@ -3,7 +3,7 @@ package butler.command;
 import butler.ButlerInputException;
 import butler.TaskList;
 import butler.util.Storage;
-import butler.util.Ui;
+import butler.util.ui.Ui;
 
 public class EventCommand extends Command {
 
@@ -33,14 +33,9 @@ public class EventCommand extends Command {
      * @param ui A handler class that handles user input and output.
      */
     @Override
-    public void execute(TaskList taskList, Storage storage, Ui ui) {
-        try {
-            String message = taskList.addEventToList(description, dateTime);
-            storage.writeTaskListToFile(taskList);
-            ui.printMessage(message);
-        } catch (ButlerInputException exception) {
-            ui.printError(exception.getMessage());
-        }
-
+    public void execute(TaskList taskList, Storage storage, Ui ui) throws ButlerInputException {
+        String message = taskList.addEventToList(description, dateTime);
+        storage.writeTaskListToFile(taskList);
+        ui.setMessage(message);
     }
 }
