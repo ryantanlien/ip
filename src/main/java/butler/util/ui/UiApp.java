@@ -1,6 +1,5 @@
 package butler.util.ui;
 
-import butler.Butler;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -28,8 +26,7 @@ public class UiApp extends Application {
     /**
      * Starts the application GUI.
      *
-     * @param stage
-     * @throws Exception
+     * @param stage JavaFX Stage to present UI elements
      */
     @Override
     public void start(Stage stage) {
@@ -82,25 +79,12 @@ public class UiApp extends Application {
         });
 
         userInput.setOnAction((event) -> {
-            handleUserInput();
+            Ui ui = Ui.getUi();
+            ui.handleUserInput(userInput, dialogContainer);
         });
 
         stage.setScene(scene);
         stage.show();
-    }
-
-    private void handleUserInput() {
-        Label userText = new Label(userInput.getText());
-        Label butlerText = new Label(getResponse(userInput.getText()));
-        dialogContainer.getChildren().addAll(
-                DialogBox.getUserDialog(userText, new ImageView(user)),
-                DialogBox.getButlerDialog(butlerText, new ImageView(butler))
-        );
-        userInput.clear();
-    }
-
-    private String getResponse(String input) {
-        return Butler.respond(input);
     }
 
     private Label getDialogLabel(String text) {

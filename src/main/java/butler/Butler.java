@@ -10,7 +10,7 @@ import javafx.application.Application;
 public class Butler {
 
     private static Storage storage = new Storage("");
-    private static Ui ui = new Ui();
+    private static Ui ui = Ui.getUi();
     private static TaskList taskList = new TaskList();
 
     public static void main(String[] args) {

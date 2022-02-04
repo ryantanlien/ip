@@ -1,5 +1,7 @@
 package butler.util;
 
+import butler.ButlerInputException;
+
 import java.time.DateTimeException;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
@@ -17,7 +19,7 @@ public class LocalDateTimeManager {
      * @param dateTime String representation of date and time.
      * @return Formatted date and time or null.
      */
-    public static String toLocalDateTime(String dateTime) {
+    public static String toLocalDateTime(String dateTime) throws ButlerInputException {
         String[] dateThenTime = dateTime.split(" ");
         if (dateThenTime.length != 2) {
             return "";
@@ -34,9 +36,9 @@ public class LocalDateTimeManager {
             }
             return newLocalDate + " " + newLocalTime;
         } catch (DateTimeException exception) {
-            return "Input date followed by time\n"
+            throw new ButlerInputException("Input date followed by time\n"
                 + "Date must be in the format: YY-MM-DD\n"
-                + "Time must be in the format: hh:mm:ss\n";
+                + "Time must be in the format: hh:mm:ss\n");
         }
     }
 }

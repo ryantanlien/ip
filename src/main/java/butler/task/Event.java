@@ -1,5 +1,6 @@
 package butler.task;
 
+import butler.ButlerInputException;
 import butler.util.LocalDateTimeManager;
 
 public class Event extends Task {
@@ -15,8 +16,9 @@ public class Event extends Task {
      *
      * @param dateAndTime string representation of date and time provided by user.
      * @param description description of the task.
+     * @throws ButlerInputException Throws ButlerInputException when dateAndTime inputs are not formatted correctly.
      */
-    public Event(String description, String dateAndTime) {
+    public Event(String description, String dateAndTime) throws ButlerInputException {
         super(description);
         this.dateAndTime = dateAndTime;
         localDateTime = LocalDateTimeManager.toLocalDateTime(dateAndTime);
