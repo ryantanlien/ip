@@ -29,6 +29,9 @@ public class UiApp extends Application {
      * @param stage JavaFX Stage to present UI elements
      */
     @Override
+    //@@author {ryantanlien}-reused
+    //Solution below adapted from https://se-education.org/guides/tutorials/javaFxPart2.html
+    //with minor modifications
     public void start(Stage stage) {
         scrollPane = new ScrollPane();
         dialogContainer = new VBox();
@@ -93,4 +96,5 @@ public class UiApp extends Application {
 
         return textToAdd;
     }
+    //@@author
 }

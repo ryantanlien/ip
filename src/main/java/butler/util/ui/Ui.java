@@ -1,5 +1,6 @@
 package butler.util.ui;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -53,7 +54,9 @@ public class Ui {
 
     protected void handleUserInput(TextField userInput, VBox dialogContainer) {
         Label userText = new Label(userInput.getText());
+        userText.setPadding(new Insets(10, 10, 10, 10));
         Label butlerText = new Label(getResponse(userInput.getText()));
+        butlerText.setPadding(new Insets(10, 10, 10, 10));
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(userText, new ImageView(USER_IMAGE)),
                 DialogBox.getButlerDialog(butlerText, new ImageView(BUTLER_IMAGE))
