@@ -9,20 +9,40 @@ import java.util.ArrayList;
 
 public class TaskList {
 
+    /** A list of Tasks */
     protected ArrayList<Task> tasks;
 
+    /** Default constructor */
     public TaskList() {
         tasks = new ArrayList<>();
     }
 
+    /**
+     * Gets the task from the Task ArrayList at the desired index.
+     *
+     * @param index Index of the Task of the ArrayList.
+     * @return Task at the desired index.
+     */
     public Task get(int index) {
         return tasks.get(index);
     }
 
+    /**
+     * Gets the number of tasks in the TaskList.
+     *
+     * @return The size of the Task ArrayList, representing the number of tasks.
+     */
     public int size() {
         return tasks.size();
     }
 
+    /**
+     * Finds all the tasks with descriptions that contain sub-strings that match the searchString.
+     *
+     * @param searchString String to match description sub-string.
+     * @return Butler response that contains all tasks with descriptions that contain sub-strings that
+     * match the searchString.
+     */
     public String find(String searchString) {
         int i = 0;
         String output = "Here are the matching tasks in your list, Master: \n";
@@ -36,12 +56,21 @@ public class TaskList {
         return output;
     }
 
+    /**
+     * Add a Deadline containing a description and a date and time to complete the task by a certain deadline.
+     *
+     * @param description description of the Task, which is a Deadline.
+     * @param dateTime String representing the date and time to complete the Deadline by.
+     * @return Butler response that confirms success status of adding the Deadline to the TaskList, and reiterates
+     * the task being added and the number of tasks currently in the list.
+     * @throws ButlerInputException Throws a ButlerInputException if user input is not satisfactory.
+     */
     public String addDeadlineToList(String description, String dateTime) throws ButlerInputException {
         if (description.equals("")) {
-            throw new ButlerInputException("Error. Sorry Master, but the description of a butler.task.Deadline cannot be empty.\n");
+            throw new ButlerInputException("Error. Sorry Master, but the description of a Deadline cannot be empty.\n");
         }
         if (dateTime.equals("")) {
-            throw new ButlerInputException("Error. Sorry Master, but the date/time of a butler.task.Deadline cannot be empty.\n");
+            throw new ButlerInputException("Error. Sorry Master, but the date/time of a Deadline cannot be empty.\n");
         }
         Task task = new Deadline(description, dateTime);
         tasks.add(task);
@@ -49,9 +78,17 @@ public class TaskList {
                 "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
 
+    /**
+     * Add a ToDo containing a description of the task
+     *
+     * @param description description of the Task, which is a ToDo.
+     * @return Butler response that confirms success status of adding the ToDo to the TaskList, and reiterates
+     * the task being added and the number of tasks currently in the list.
+     * @throws ButlerInputException Throws a ButlerInputException if user input is not satisfactory.
+     */
     public String addToDoToList(String description) throws ButlerInputException {
         if (description.equals("")) {
-            throw new ButlerInputException("Error. Sorry Master, but the description of a butler.task.ToDo cannot be empty.\n");
+            throw new ButlerInputException("Error. Sorry Master, but the description of a ToDo cannot be empty.\n");
         }
         Task task = new ToDo(description);
         tasks.add(task);
@@ -59,12 +96,21 @@ public class TaskList {
                 "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
 
+    /**
+     * Add an Event containing a description and a date and time to complete the task at a certain time.
+     *
+     * @param description description of the Task, which is an Event.
+     * @param dateTime String representing the date and time to complete the Event at.
+     * @return Butler response that confirms success status of adding the Event to the TaskList, and reiterates
+     * the task being added and the number of tasks currently in the list.
+     * @throws ButlerInputException Throws a ButlerInputException if user input is not satisfactory.
+     */
     public String addEventToList(String description, String dateTime) throws ButlerInputException {
         if (description.equals("")) {
-            throw new ButlerInputException("Error. Sorry Master, but the description of an butler.task.Event cannot be empty.\n");
+            throw new ButlerInputException("Error. Sorry Master, but the description of an Event cannot be empty.\n");
         }
         if (dateTime.equals("")) {
-            throw new ButlerInputException("Error. Sorry Master, but the date/time of an butler.task.Event cannot be empty.\n");
+            throw new ButlerInputException("Error. Sorry Master, but the date/time of an Event cannot be empty.\n");
         }
         Task task = new Event(description, dateTime);
         tasks.add(task);
@@ -72,6 +118,14 @@ public class TaskList {
                 "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
 
+    /**
+     * Deletes a task from the taskList at a certain index, with the first index starting from 1.
+     *
+     * @param index The index of the desired task to be deleted.
+     * @return Butler response that confirms the success status of deleting a Task from the TaskList, and reiterates
+     * the task being deleted, and the number of tasks currently in the list.
+     * @throws ButlerInputException Throws a ButlerInputException if user input is not satisfactory.
+     */
     public String deleteTaskFromList(int index) throws ButlerInputException {
         if (index >= tasks.size()) {
             throw new ButlerInputException("Error. Master list item number "
@@ -82,6 +136,14 @@ public class TaskList {
                 "\n There are now " + tasks.size() + " tasks in your list.\n";
     }
 
+    /**
+     * Marks a task in the taskList as done, given it's index, with the first index starting from 1.
+     *
+     * @param index The index of the desired task to be marked.
+     * @return Butler response that confirms the success status of marking the Task in the TaskList and reiterates
+     * the task being marked.
+     * @throws ButlerInputException Throws a ButlerInputException if user input is not satisfactory.
+     */
     public String markAsDone(int index) throws ButlerInputException {
         if (index >= tasks.size()) {
             throw new ButlerInputException("Error. Master, list item number "
@@ -93,6 +155,14 @@ public class TaskList {
         return string + "   [" + task.getStatusIcon() + "] " + task.getDescription() + "\n";
     }
 
+    /**
+     * Marks a task in the taskList as not done, given it's index, with the first index starting from 1.
+     *
+     * @param index The index of the desired task to be marked.
+     * @return Butler response that confirms the success status of marking the Task in the TaskList and reiterates
+     * the task being marked.
+     * @throws ButlerInputException Throws a ButlerInputException if user input is not satisfactory.
+     */
     public String markAsUndone(int index) throws ButlerInputException {
         if (index >= tasks.size()) {
             throw new ButlerInputException("Error. Master, list item number "
@@ -104,6 +174,12 @@ public class TaskList {
         return string + "   [" + task.getStatusIcon() + "] " + task.getDescription() + "\n";
     }
 
+    /**
+     * Views the list in its entirety
+     *
+     * @return Butler response that confirms the success status of viewing the TaskList, and lists all tasks in the list
+     * with a String representation.
+     */
     public String viewList() {
         int i = 0;
         String output = "Here are the tasks in your list Master: \n";

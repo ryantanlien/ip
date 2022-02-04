@@ -7,9 +7,9 @@ import butler.util.ui.Ui;
 
 public class EventCommand extends Command {
 
-    /* Description of what needs to be done for the task */
+    /** Description of what needs to be done for the task */
     private String description;
-    /* String representation of date and time not following any format */
+    /** String representation of date and time not following any format */
     private String dateTime;
 
     /**
@@ -31,6 +31,7 @@ public class EventCommand extends Command {
      * @param taskList A managed list of tasks.
      * @param storage A handler class that handles file I/O, storing taskList details in a file.
      * @param ui A handler class that handles user input and output.
+     * @throws ButlerInputException Throws the ButlerInputException thrown by sub-methods.
      */
     @Override
     public void execute(TaskList taskList, Storage storage, Ui ui) throws ButlerInputException {

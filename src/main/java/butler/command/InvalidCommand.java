@@ -14,6 +14,7 @@ public class InvalidCommand extends Command {
      * @param taskList A managed list of tasks.
      * @param storage A handler class that handles file I/O, storing taskList details in a file.
      * @param ui A handler class that handles user input and output.
+     * @throws ButlerInputException Throws the ButlerInputException as when user inputs cannot be understood
      */
     @Override
     public void execute(TaskList taskList, Storage storage, Ui ui) throws ButlerInputException {

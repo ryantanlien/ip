@@ -6,12 +6,12 @@ import butler.command.ByeCommand;
 import butler.command.DeadlineCommand;
 import butler.command.DeleteCommand;
 import butler.command.EventCommand;
+import butler.command.FindCommand;
 import butler.command.InvalidCommand;
 import butler.command.ListCommand;
 import butler.command.MarkCommand;
 import butler.command.TodoCommand;
 import butler.command.UnmarkCommand;
-import butler.command.FindCommand;
 
 public class Parser {
 
@@ -25,6 +25,7 @@ public class Parser {
      * todo
      * deadline
      * event
+     * find
      * delete
      *
      * @param input User input.

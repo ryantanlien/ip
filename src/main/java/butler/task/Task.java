@@ -2,9 +2,9 @@ package butler.task;
 
 public class Task {
     
-    /* Description of what needs to be done for the task */
+    /** Description of what needs to be done for the task */
     private String description;
-    /* Is the task complete or not */
+    /** Is the task complete or not */
     private boolean isDone;
 
     /**

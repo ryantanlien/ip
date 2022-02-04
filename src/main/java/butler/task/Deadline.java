@@ -4,9 +4,9 @@ import butler.util.LocalDateTimeManager;
 
 public class Deadline extends Task {
 
-    /* String representation of date and time not following any format */
+    /** String representation of date and time not following any format */
     private String dateAndTime;
-    /* String representation of formatted LocalDateTime objects */
+    /** String representation of formatted LocalDateTime objects */
     private String localDateTime;
 
     /**

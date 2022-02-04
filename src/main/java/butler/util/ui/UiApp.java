@@ -1,7 +1,6 @@
 package butler.util.ui;
 
 import butler.Butler;
-import butler.util.ui.DialogBox;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,8 +25,14 @@ public class UiApp extends Application {
     private Image user = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
     private Image butler = new Image(this.getClass().getResourceAsStream("/images/DaButler.png"));
 
+    /**
+     * Starts the application GUI.
+     *
+     * @param stage
+     * @throws Exception
+     */
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         scrollPane = new ScrollPane();
         dialogContainer = new VBox();
         scrollPane.setContent(dialogContainer);

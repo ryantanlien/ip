@@ -7,7 +7,7 @@ import butler.util.ui.Ui;
 
 public class MarkCommand extends Command {
 
-    /* Index of taskList that is to be marked */
+    /** Index of taskList that is to be marked */
     int index;
 
     /**
@@ -27,6 +27,7 @@ public class MarkCommand extends Command {
      * @param taskList A managed list of tasks.
      * @param storage A handler class that handles file I/O, storing taskList details in a file.
      * @param ui A handler class that handles user input and output.
+     * @throws ButlerInputException Throws the ButlerInputException thrown by sub-methods.
      */
     @Override
     public void execute(TaskList taskList, Storage storage, Ui ui) throws ButlerInputException {

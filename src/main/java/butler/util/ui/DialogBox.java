@@ -13,6 +13,11 @@ public class DialogBox extends HBox {
     private Label text;
     private ImageView displayPicture;
 
+    /** Default constructor
+     *
+     * @param l Label component of the DialogBox
+     * @param iv Image associated to the DialogBox, typically that of the chat bot or user
+     */
     public DialogBox(Label l, ImageView iv) {
         text = l;
         displayPicture = iv;
@@ -25,11 +30,11 @@ public class DialogBox extends HBox {
         this.getChildren().addAll(text, displayPicture);
     }
 
-    public static DialogBox getUserDialog(Label l, ImageView iv) {
+    protected static DialogBox getUserDialog(Label l, ImageView iv) {
         return new DialogBox(l, iv);
     }
 
-    public static DialogBox getButlerDialog(Label l, ImageView iv) {
+    protected static DialogBox getButlerDialog(Label l, ImageView iv) {
         var db = new DialogBox(l, iv);
         db.flip();
         return db;

@@ -9,9 +9,9 @@ import java.io.IOException;
 
 public class Storage {
 
-    /* Default path for storage file. */
+    /** Default path for storage file. */
     private final static String DEFAULT_PATH_NAME = "src/main/resources/list.txt";
-    /* Actual path for storage file. */
+    /** Actual path for storage file. */
     private String PATH_NAME;
 
     /**
