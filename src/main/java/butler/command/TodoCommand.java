@@ -8,7 +8,7 @@ import butler.util.ui.Ui;
 public class TodoCommand extends Command {
 
     /** Description of what needs to be done for the task */
-    String description;
+    private String description;
 
     /**
      * Constructs a TodoCommand object that executes a specified command.

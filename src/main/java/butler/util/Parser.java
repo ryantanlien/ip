@@ -1,8 +1,8 @@
 package butler.util;
 
 import butler.ButlerInputException;
-import butler.command.Command;
 import butler.command.ByeCommand;
+import butler.command.Command;
 import butler.command.DeadlineCommand;
 import butler.command.DeleteCommand;
 import butler.command.EventCommand;
@@ -41,19 +41,19 @@ public class Parser {
             return new ListCommand();
         } else if (firstWord.equals("mark")) {
             if (stringArray.length != 2) {
-                throw new ButlerInputException("Error. Sorry Master, " +
-                        "but a mark or unmark command must be followed by one Integer.\n");
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but a mark or unmark command must be followed by one Integer.\n");
             }
             try {
                 return new MarkCommand(Integer.parseInt(stringArray[1]) - 1);
             } catch (NumberFormatException exception) {
-                throw new ButlerInputException("Error. Sorry Master, " +
-                       "but a mark or unmark command must be followed by one Integer.\n");
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but a mark or unmark command must be followed by one Integer.\n");
             }
         } else if (firstWord.equals("unmark")) {
             if (stringArray.length != 2) {
-                throw new ButlerInputException("Error. Sorry Master, " +
-                        "but a mark or unmark command must be followed by one Integer.\n");
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but a mark or unmark command must be followed by one Integer.\n");
             }
             try {
                 return new UnmarkCommand(Integer.parseInt(stringArray[1]) - 1);

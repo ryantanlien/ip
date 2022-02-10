@@ -1,7 +1,7 @@
 package butler.task;
 
 public class Task {
-    
+
     /** Description of what needs to be done for the task */
     private String description;
     /** Is the task complete or not */
@@ -62,7 +62,7 @@ public class Task {
      */
     @Override
     public String toString() {
-        return "[" + this.getStatusIcon() + "] " +
-                this.description + "\n";
+        return "[" + this.getStatusIcon() + "] "
+                + this.description + "\n";
     }
 }

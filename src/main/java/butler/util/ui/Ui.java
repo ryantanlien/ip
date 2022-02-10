@@ -1,20 +1,27 @@
 package butler.util.ui;
 
+import butler.Butler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import butler.Butler;
 
 public class Ui {
 
+    private static Ui UiInstance = null;
     private String message;
     private final Image USER_IMAGE;
     private final Image BUTLER_IMAGE;
-    private static Ui UiInstance = null;
 
+    /**
+     * Default Ui Constructor
+     */
+    public Ui() {
+        USER_IMAGE = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
+        BUTLER_IMAGE = new Image(this.getClass().getResourceAsStream("/images/DaButler.png"));
+    }
 
     /**
      * Gets the message stored in this handler class.
@@ -32,12 +39,6 @@ public class Ui {
     public void setMessage(String message) {
         this.message = message;
     }
-
-    public Ui() {
-        USER_IMAGE = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-        BUTLER_IMAGE = new Image(this.getClass().getResourceAsStream("/images/DaButler.png"));
-    }
-
 
     /**
      * Getter for Ui Singleton Pattern

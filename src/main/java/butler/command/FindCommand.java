@@ -1,6 +1,5 @@
 package butler.command;
 
-import butler.ButlerInputException;
 import butler.TaskList;
 import butler.util.Storage;
 import butler.util.ui.Ui;

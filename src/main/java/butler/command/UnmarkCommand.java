@@ -8,7 +8,7 @@ import butler.util.ui.Ui;
 public class UnmarkCommand extends Command {
 
     /** Index of taskList that is to be unmarked */
-    int index;
+    private int index;
 
     /**
      * Constructs a UnmarkCommand object that executes a specified command.
@@ -36,8 +36,8 @@ public class UnmarkCommand extends Command {
             storage.writeTaskListToFile(taskList);
             ui.setMessage(message);
         } catch (NumberFormatException exception) {
-            throw new ButlerInputException("Error. Sorry Master, " +
-                    "but a mark or unmark command must be followed by one Integer.\n");
+            throw new ButlerInputException("Error. Sorry Master, "
+                    + "but a mark or unmark command must be followed by one Integer.\n");
         }
     }
 }

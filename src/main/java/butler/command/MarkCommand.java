@@ -8,7 +8,7 @@ import butler.util.ui.Ui;
 public class MarkCommand extends Command {
 
     /** Index of taskList that is to be marked */
-    int index;
+    private int index;
 
     /**
      * Constructs a MarkCommand object that executes a specified command.

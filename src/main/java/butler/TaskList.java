@@ -4,7 +4,6 @@ import butler.task.Deadline;
 import butler.task.Event;
 import butler.task.Task;
 import butler.task.ToDo;
-
 import java.util.ArrayList;
 
 public class TaskList {
@@ -74,8 +73,8 @@ public class TaskList {
         }
         Task task = new Deadline(description, dateTime);
         tasks.add(task);
-        return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString() +
-                "\nThere are now " + tasks.size() + " tasks in your list.\n";
+        return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString()
+                + "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
 
     /**
@@ -92,8 +91,8 @@ public class TaskList {
         }
         Task task = new ToDo(description);
         tasks.add(task);
-        return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString() +
-                "\nThere are now " + tasks.size() + " tasks in your list.\n";
+        return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString()
+                + "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
 
     /**
@@ -114,8 +113,8 @@ public class TaskList {
         }
         Task task = new Event(description, dateTime);
         tasks.add(task);
-        return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString() +
-                "\nThere are now " + tasks.size() + " tasks in your list.\n";
+        return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString()
+                + "\nThere are now " + tasks.size() + " tasks in your list.\n";
     }
 
     /**
@@ -132,8 +131,8 @@ public class TaskList {
                     + String.valueOf(index + 1) + "does not exist. \n");
         }
         Task task = tasks.remove(index);
-        return "Noted Master. I'll remove this task from your list.\n" + "   " + task.toString() +
-                "\n There are now " + tasks.size() + " tasks in your list.\n";
+        return "Noted Master. I'll remove this task from your list.\n" + "   " + task.toString()
+                + "\n There are now " + tasks.size() + " tasks in your list.\n";
     }
 
     /**

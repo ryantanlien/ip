@@ -13,11 +13,11 @@ public class Butler {
     private static Ui ui = Ui.getUi();
     private static TaskList taskList = new TaskList();
 
-    public static void main(String[] args) {
-        Application.launch(UiApp.class, args);
+    public Butler() {
     }
 
-    public Butler() {
+    public static void main(String[] args) {
+        Application.launch(UiApp.class, args);
     }
 
     public static String respond(String input) {

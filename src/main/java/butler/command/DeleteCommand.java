@@ -8,7 +8,7 @@ import butler.util.ui.Ui;
 public class DeleteCommand extends Command {
 
     /** Index of taskList that is to be deleted */
-    int index;
+    private int index;
 
     /**
      * Constructs a DeleteCommand object that executes a specified command.

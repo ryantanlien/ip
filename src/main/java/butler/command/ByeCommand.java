@@ -4,7 +4,7 @@ import butler.TaskList;
 import butler.util.Storage;
 import butler.util.ui.Ui;
 
-public class ByeCommand extends Command{
+public class ByeCommand extends Command {
 
     /**
      * Executes command behavior.
