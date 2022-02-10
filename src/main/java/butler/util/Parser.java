@@ -12,6 +12,7 @@ import butler.command.ListCommand;
 import butler.command.MarkCommand;
 import butler.command.TodoCommand;
 import butler.command.UnmarkCommand;
+import butler.command.UpdateCommand;
 
 public class Parser {
 
@@ -44,6 +45,7 @@ public class Parser {
         command = detectEvent(input, command);
         command = detectFind(input, command);
         command = detectDelete(input, command);
+        command = detectUpdate(input, command);
         return command;
     }
 
@@ -148,7 +150,7 @@ public class Parser {
     private static Command detectEvent(String input, Command command) {
         String[] stringArray = input.split(" ");
         String firstWord = stringArray[0];
-        if (firstWord.equals("deadline")) {
+        if (firstWord.equals("event")) {
             StringBuilder description = new StringBuilder();
             StringBuilder dateTime = new StringBuilder();
             String[] dStringArray = input.split(" /at ");
@@ -202,6 +204,37 @@ public class Parser {
             } catch (NumberFormatException exception) {
                 throw new ButlerInputException("Error. Sorry Master, "
                         + "but a delete command must only be followed by one Integer.\n");
+            }
+        }
+        return command;
+    }
+
+    private static Command detectUpdate(String input, Command command) throws ButlerInputException {
+        String[] stringArray = input.split(" ");
+        String firstWord = stringArray[0];
+        if (firstWord.equals("update")) {
+            if (stringArray.length <= 2) {
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but an update command must be followed by a integer and "
+                        + "a new description.\n");
+            }
+            StringBuilder description = new StringBuilder("");
+            String[] dStringArray = input.split(" /description ");
+            if (dStringArray.length == 2) {
+                String[] strArray = dStringArray[1].split(" ");
+                for (int i = 0; i < strArray.length; i++) {
+                    if (i == strArray.length - 1) {
+                        description.append(strArray[i]);
+                    } else {
+                        description.append(strArray[i] + " ");
+                    }
+                }
+            }
+            try {
+                return new UpdateCommand(Integer.parseInt(stringArray[1]) - 1, description.toString());
+            } catch (NumberFormatException exception) {
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but an update command must be followed by one Integer.\n");
             }
         }
         return command;

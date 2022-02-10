@@ -38,7 +38,7 @@ public class Butler {
         }
     }
 
-    public static void checkInstantiated() {
+    private static void checkInstantiated() {
         assert storage != null;
         assert ui != null;
         assert taskList != null;
