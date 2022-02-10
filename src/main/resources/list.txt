@@ -1,7 +1,0 @@
-1. [D][X] fix bugs
- Input date followed by time
-Date must be in the format: YY-MM-DD
-Time must be in the format: hh:mm:ss
-
-2. [E][ ] tchoukball
- Feb 1 2022 1313

@@ -10,17 +10,17 @@ import javafx.scene.layout.VBox;
 
 public class Ui {
 
-    private static Ui UiInstance = null;
+    private static Ui uiInstance = null;
     private String message;
-    private final Image USER_IMAGE;
-    private final Image BUTLER_IMAGE;
+    private final Image userImage;
+    private final Image butlerImage;
 
     /**
      * Default Ui Constructor
      */
     public Ui() {
-        USER_IMAGE = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-        BUTLER_IMAGE = new Image(this.getClass().getResourceAsStream("/images/DaButler.png"));
+        userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
+        butlerImage = new Image(this.getClass().getResourceAsStream("/images/DaButler.png"));
     }
 
     /**
@@ -47,10 +47,10 @@ public class Ui {
      *
      */
     public static Ui getUi() {
-        if (UiInstance == null) {
-            UiInstance = new Ui();
+        if (uiInstance == null) {
+            uiInstance = new Ui();
         }
-        return UiInstance;
+        return uiInstance;
     }
 
     protected void handleUserInput(TextField userInput, VBox dialogContainer) {
@@ -59,8 +59,8 @@ public class Ui {
         Label butlerText = new Label(getResponse(userInput.getText()));
         butlerText.setPadding(new Insets(10, 10, 10, 10));
         dialogContainer.getChildren().addAll(
-                DialogBox.getUserDialog(userText, new ImageView(USER_IMAGE)),
-                DialogBox.getButlerDialog(butlerText, new ImageView(BUTLER_IMAGE))
+                DialogBox.getUserDialog(userText, new ImageView(userImage)),
+                DialogBox.getButlerDialog(butlerText, new ImageView(butlerImage))
         );
         userInput.clear();
     }
