@@ -27,6 +27,17 @@ public class Task {
     }
 
     /**
+     * Sets the task description to a new given description.
+     *
+     * @param description New given description.
+     * @return String Task Description.
+     */
+    public String setDescription(String description) {
+        this.description = description;
+        return this.description;
+    }
+
+    /**
      * Returns symbolic representation of whether task is done.
      *
      * @return String Representation of task completeness as a X.

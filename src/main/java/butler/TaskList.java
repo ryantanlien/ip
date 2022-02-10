@@ -58,6 +58,29 @@ public class TaskList {
     }
 
     /**
+     * Updates the description of a Task in the TaskList, given its index.
+     *
+     * @param index The index of the Task in the TaskList to be updated.
+     * @param newDescription Updated description of the Task.
+     * @return Butler response that confirms success status of adding the Deadline to the TaskList, and reiterates the
+     * new state of the Task object.
+     * @throws ButlerInputException Throws a ButlerInputException if user input is not satisfactory.
+     */
+    public String updateTaskDescription(int index, String newDescription) throws ButlerInputException {
+        if (newDescription.equals("")) {
+            throw new ButlerInputException("Error. Sorry Master, "
+                    + "but the new description of the task cannot be empty.\n");
+        }
+        if (index >= tasks.size()) {
+            throw new ButlerInputException("Error. Master, list item number "
+                    + String.valueOf(index + 1) + " does not exist.\n");
+        }
+        Task task = tasks.get(index);
+        task.setDescription(newDescription);
+        return "Noted Master. I'll update this task in your list. It is now: \n" + "   " + task.toString() + "\n";
+    }
+
+    /**
      * Add a Deadline containing a description and a date and time to complete the task by a certain deadline.
      *
      * @param description description of the Task, which is a Deadline.

@@ -34,6 +34,15 @@ public class Deadline extends Task {
     }
 
     /**
+     * Returns symbolic representation of dateTime.
+     *
+     * @return String Representation of dateTime.
+     */
+    public String getLocalDateTime() {
+        return this.localDateTime;
+    }
+
+    /**
      * Represents Deadline Object as a String
      *
      * @return String Representation of task as a whole.
