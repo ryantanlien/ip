@@ -20,6 +20,13 @@ public class Butler {
         Application.launch(UiApp.class, args);
     }
 
+    /**
+     * Gets the Butler chat bot to respond to the user input, and execute predefined commands based on input,
+     * and outputs a response.
+     *
+     * @param input User's input
+     * @return Returns a string to be displayed on the GUI, encapsulating the response of Butler.
+     */
     public static String respond(String input) {
         try {
             Command command = Parser.parse(input);

@@ -58,8 +58,8 @@ public class Parser {
             try {
                 return new UnmarkCommand(Integer.parseInt(stringArray[1]) - 1);
             } catch (NumberFormatException exception) {
-                throw new ButlerInputException("Error. Sorry Master, " +
-                        "but a mark or unmark command must be followed by one Integer.\n");
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but a mark or unmark command must be followed by one Integer.\n");
             }
         } else if (firstWord.equals("todo")) {
             StringBuilder description = new StringBuilder();
@@ -107,8 +107,8 @@ public class Parser {
             return new EventCommand(description.toString(), dateTime.toString());
         } else if (firstWord.equals("find")) {
             if (stringArray.length < 2) {
-                throw new ButlerInputException("Error. Sorry Master, " +
-                        "but a find command must be followed by a description.\n");
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but a find command must be followed by a description.\n");
             }
             StringBuilder description = new StringBuilder();
             for (int i = 1; i < stringArray.length; i++) {
@@ -121,14 +121,14 @@ public class Parser {
             return new FindCommand(description.toString());
         } else if (firstWord.equals("delete")) {
             if (stringArray.length != 2) {
-                throw new ButlerInputException("Error. Sorry Master, " +
-                        "but a delete command must only be followed by one Integer.\n");
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but a delete command must only be followed by one Integer.\n");
             }
             try {
                 return new DeleteCommand(Integer.parseInt(stringArray[1]) - 1);
             } catch (NumberFormatException exception) {
-                throw new ButlerInputException("Error. Sorry Master, " +
-                        "but a delete command must only be followed by one Integer.\n");
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but a delete command must only be followed by one Integer.\n");
             }
         } else {
             return new InvalidCommand();

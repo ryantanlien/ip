@@ -1,10 +1,11 @@
 package butler;
 
+import java.util.ArrayList;
+
 import butler.task.Deadline;
 import butler.task.Event;
 import butler.task.Task;
 import butler.task.ToDo;
-import java.util.ArrayList;
 
 public class TaskList {
 
