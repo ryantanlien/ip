@@ -33,6 +33,7 @@ public class Parser {
      * @throws ButlerInputException This exception is thrown via the InvalidCommand if input matches no given commands.
      */
     public static Command parse(String input) throws ButlerInputException {
+        assert input != null;
         String[] stringArray = input.split(" ");
         String firstWord = stringArray[0];
         if (firstWord.equals("bye")) {

@@ -43,6 +43,7 @@ public class TaskList {
      * match the searchString.
      */
     public String find(String searchString) {
+        assert searchString != null;
         int i = 0;
         String output = "Here are the matching tasks in your list, Master: \n";
         while (i < tasks.size()) {
@@ -72,6 +73,8 @@ public class TaskList {
             throw new ButlerInputException("Error. Sorry Master, but the date/time of a Deadline cannot be empty.\n");
         }
         Task task = new Deadline(description, dateTime);
+        assert task != null;
+        assert tasks != null;
         tasks.add(task);
         return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString()
                 + "\nThere are now " + tasks.size() + " tasks in your list.\n";
@@ -90,6 +93,8 @@ public class TaskList {
             throw new ButlerInputException("Error. Sorry Master, but the description of a ToDo cannot be empty.\n");
         }
         Task task = new ToDo(description);
+        assert task != null;
+        assert tasks != null;
         tasks.add(task);
         return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString()
                 + "\nThere are now " + tasks.size() + " tasks in your list.\n";
@@ -112,6 +117,8 @@ public class TaskList {
             throw new ButlerInputException("Error. Sorry Master, but the date/time of an Event cannot be empty.\n");
         }
         Task task = new Event(description, dateTime);
+        assert task != null;
+        assert tasks != null;
         tasks.add(task);
         return "Noted Master. I'll add this task to your list.\n" + "   " + task.toString()
                 + "\nThere are now " + tasks.size() + " tasks in your list.\n";
@@ -130,7 +137,9 @@ public class TaskList {
             throw new ButlerInputException("Error. Master list item number "
                     + String.valueOf(index + 1) + "does not exist. \n");
         }
+        assert index < tasks.size();
         Task task = tasks.remove(index);
+        assert task != null;
         return "Noted Master. I'll remove this task from your list.\n" + "   " + task.toString()
                 + "\n There are now " + tasks.size() + " tasks in your list.\n";
     }
@@ -150,6 +159,7 @@ public class TaskList {
         }
         Task task = tasks.get(index);
         task.markAsDone();
+        assert task.getStatusIcon().equals("X");
         String string = "Congratulations Master, I've marked this task as done: \n";
         return string + "   [" + task.getStatusIcon() + "] " + task.getDescription() + "\n";
     }
@@ -167,8 +177,11 @@ public class TaskList {
             throw new ButlerInputException("Error. Master, list item number "
                     + String.valueOf(index + 1) + " does not exist.\n");
         }
+        assert index < tasks.size();
         Task task = tasks.get(index);
+        assert task != null;
         task.markAsUndone();
+        assert task.getStatusIcon().equals(" ");
         String string = "Very well Master, I've marked this task as not done yet: \n";
         return string + "   [" + task.getStatusIcon() + "] " + task.getDescription() + "\n";
     }
@@ -184,6 +197,7 @@ public class TaskList {
         String output = "Here are the tasks in your list Master: \n";
         while (i < tasks.size()) {
             Task task = tasks.get(i);
+            assert task != null;
             output += String.valueOf(i + 1) + ". " + task.toString() + "\n";
             i++;
         }
