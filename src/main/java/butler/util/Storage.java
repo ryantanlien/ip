@@ -21,6 +21,7 @@ public class Storage {
      * @param pathName Given path.
      */
     public Storage(String pathName) {
+        assert pathName != null;
         if (pathName.equals("")) {
             this.pathName = DEFAULT_PATH_NAME;
         } else {
@@ -41,6 +42,7 @@ public class Storage {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
+        assert file != null;
         return file;
     }
 

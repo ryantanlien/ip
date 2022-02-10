@@ -29,12 +29,19 @@ public class Butler {
      */
     public static String respond(String input) {
         try {
+            checkInstantiated();
             Command command = Parser.parse(input);
             command.execute(taskList, storage, ui);
             return ui.getMessage();
         } catch (ButlerInputException exception) {
             return exception.getMessage();
         }
+    }
+
+    public static void checkInstantiated() {
+        assert storage != null;
+        assert ui != null;
+        assert taskList != null;
     }
 
     public static String greet() {
