@@ -20,6 +20,7 @@ public class LocalDateTimeManager {
      * @return Formatted date and time or null.
      */
     public static String toLocalDateTime(String dateTime) throws ButlerInputException {
+        assert dateTime != null;
         String[] dateThenTime = dateTime.split(" ");
         if (dateThenTime.length != 2) {
             return "";
