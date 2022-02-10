@@ -1,17 +1,18 @@
 package butler.util;
 
-import butler.TaskList;
-import butler.task.Task;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import butler.TaskList;
+import butler.task.Task;
+
 public class Storage {
 
     /** Default path for storage file. */
-    private final static String DEFAULT_PATH_NAME = "src/main/resources/list.txt";
+    private static final String DEFAULT_PATH_NAME = "src/main/resources/list.txt";
     /** Actual path for storage file. */
-    private String PATH_NAME;
+    private String pathName;
 
     /**
      * Constructs a Storage object and intialises actual path to given path.
@@ -22,9 +23,9 @@ public class Storage {
     public Storage(String pathName) {
         assert pathName != null;
         if (pathName.equals("")) {
-            PATH_NAME = DEFAULT_PATH_NAME;
+            this.pathName = DEFAULT_PATH_NAME;
         } else {
-            PATH_NAME = pathName;
+            this.pathName = pathName;
         }
     }
 
@@ -46,7 +47,7 @@ public class Storage {
     }
 
     private File getFileObject() {
-        File file = createFile(PATH_NAME);
+        File file = createFile(this.pathName);
         return file;
     }
 

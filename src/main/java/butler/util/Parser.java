@@ -34,13 +34,43 @@ public class Parser {
      */
     public static Command parse(String input) throws ButlerInputException {
         assert input != null;
+        Command command = new InvalidCommand();
+        command = detectBye(input, command);
+        command = detectList(input, command);
+        command = detectMark(input, command);
+        command = detectUnmark(input, command);
+        command = detectTodo(input, command);
+        command = detectDeadline(input, command);
+        command = detectEvent(input, command);
+        command = detectFind(input, command);
+        command = detectDelete(input, command);
+        return command;
+    }
+
+    private static Command detectBye(String input, Command command) {
         String[] stringArray = input.split(" ");
         String firstWord = stringArray[0];
         if (firstWord.equals("bye")) {
             return new ByeCommand();
-        } else if (firstWord.equals("list") && stringArray.length == 1) {
+        } else {
+            return command;
+        }
+    }
+
+    private static Command detectList(String input, Command command) {
+        String[] stringArray = input.split(" ");
+        String firstWord = stringArray[0];
+        if (firstWord.equals("list") && stringArray.length == 1) {
             return new ListCommand();
-        } else if (firstWord.equals("mark")) {
+        } else {
+            return command;
+        }
+    }
+
+    private static Command detectMark(String input, Command command) throws ButlerInputException {
+        String[] stringArray = input.split(" ");
+        String firstWord = stringArray[0];
+        if (firstWord.equals("mark")) {
             if (stringArray.length != 2) {
                 throw new ButlerInputException("Error. Sorry Master, "
                         + "but a mark or unmark command must be followed by one Integer.\n");
@@ -51,7 +81,14 @@ public class Parser {
                 throw new ButlerInputException("Error. Sorry Master, "
                         + "but a mark or unmark command must be followed by one Integer.\n");
             }
-        } else if (firstWord.equals("unmark")) {
+        }
+        return command;
+    }
+
+    private static Command detectUnmark(String input, Command command) throws ButlerInputException {
+        String[] stringArray = input.split(" ");
+        String firstWord = stringArray[0];
+        if (firstWord.equals("unmark")) {
             if (stringArray.length != 2) {
                 throw new ButlerInputException("Error. Sorry Master, "
                         + "but a mark or unmark command must be followed by one Integer.\n");
@@ -59,10 +96,17 @@ public class Parser {
             try {
                 return new UnmarkCommand(Integer.parseInt(stringArray[1]) - 1);
             } catch (NumberFormatException exception) {
-                throw new ButlerInputException("Error. Sorry Master, " +
-                        "but a mark or unmark command must be followed by one Integer.\n");
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but a mark or unmark command must be followed by one Integer.\n");
             }
-        } else if (firstWord.equals("todo")) {
+        }
+        return command;
+    }
+
+    private static Command detectTodo(String input, Command command) {
+        String[] stringArray = input.split(" ");
+        String firstWord = stringArray[0];
+        if (firstWord.equals("todo")) {
             StringBuilder description = new StringBuilder();
             String[] dStringArray = input.split(" /at ");
             String[] strArray = dStringArray[0].split(" ");
@@ -74,7 +118,14 @@ public class Parser {
                 }
             }
             return new TodoCommand(description.toString());
-        } else if (firstWord.equals("deadline")) {
+        }
+        return command;
+    }
+
+    private static Command detectDeadline(String input, Command command) {
+        String[] stringArray = input.split(" ");
+        String firstWord = stringArray[0];
+        if (firstWord.equals("deadline")) {
             StringBuilder description = new StringBuilder();
             StringBuilder dateTime = new StringBuilder();
             String[] dStringArray = input.split(" /by ");
@@ -90,7 +141,14 @@ public class Parser {
                 dateTime.append(dStringArray[1]);
             }
             return new DeadlineCommand(description.toString(), dateTime.toString());
-        } else if (firstWord.equals("event")) {
+        }
+        return command;
+    }
+
+    private static Command detectEvent(String input, Command command) {
+        String[] stringArray = input.split(" ");
+        String firstWord = stringArray[0];
+        if (firstWord.equals("deadline")) {
             StringBuilder description = new StringBuilder();
             StringBuilder dateTime = new StringBuilder();
             String[] dStringArray = input.split(" /at ");
@@ -106,10 +164,17 @@ public class Parser {
                 dateTime.append(dStringArray[1]);
             }
             return new EventCommand(description.toString(), dateTime.toString());
-        } else if (firstWord.equals("find")) {
+        }
+        return command;
+    }
+
+    private static Command detectFind(String input, Command command) throws ButlerInputException {
+        String[] stringArray = input.split(" ");
+        String firstWord = stringArray[0];
+        if (firstWord.equals("find")) {
             if (stringArray.length < 2) {
-                throw new ButlerInputException("Error. Sorry Master, " +
-                        "but a find command must be followed by a description.\n");
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but a find command must be followed by a description.\n");
             }
             StringBuilder description = new StringBuilder();
             for (int i = 1; i < stringArray.length; i++) {
@@ -120,19 +185,25 @@ public class Parser {
                 }
             }
             return new FindCommand(description.toString());
-        } else if (firstWord.equals("delete")) {
+        }
+        return command;
+    }
+
+    private static Command detectDelete(String input, Command command) throws ButlerInputException {
+        String[] stringArray = input.split(" ");
+        String firstWord = stringArray[0];
+        if (firstWord.equals("delete")) {
             if (stringArray.length != 2) {
-                throw new ButlerInputException("Error. Sorry Master, " +
-                        "but a delete command must only be followed by one Integer.\n");
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but a delete command must only be followed by one Integer.\n");
             }
             try {
                 return new DeleteCommand(Integer.parseInt(stringArray[1]) - 1);
             } catch (NumberFormatException exception) {
-                throw new ButlerInputException("Error. Sorry Master, " +
-                        "but a delete command must only be followed by one Integer.\n");
+                throw new ButlerInputException("Error. Sorry Master, "
+                        + "but a delete command must only be followed by one Integer.\n");
             }
-        } else {
-            return new InvalidCommand();
         }
+        return command;
     }
 }
