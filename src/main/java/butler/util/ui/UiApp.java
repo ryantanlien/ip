@@ -86,6 +86,11 @@ public class UiApp extends Application {
             ui.handleUserInput(userInput, dialogContainer);
         });
 
+        stage.setOnShown((event -> {
+            Ui ui = Ui.getUi();
+            ui.showGreeting(dialogContainer);
+        }));
+
         stage.setScene(scene);
         stage.show();
     }

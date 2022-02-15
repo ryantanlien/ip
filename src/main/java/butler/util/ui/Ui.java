@@ -65,7 +65,19 @@ public class Ui {
         userInput.clear();
     }
 
+    protected void showGreeting(VBox dialogContainer) {
+        Label butlerText = new Label(getGreeting());
+        butlerText.setPadding(new Insets(10, 10, 10, 10));
+        dialogContainer.getChildren().addAll(
+                DialogBox.getButlerDialog(butlerText, new ImageView(butlerImage))
+        );
+    }
+
     private String getResponse(String input) {
         return Butler.respond(input);
+    }
+
+    private String getGreeting() {
+        return Butler.greet();
     }
 }
