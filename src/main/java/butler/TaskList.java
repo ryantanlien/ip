@@ -222,7 +222,7 @@ public class TaskList {
         while (i < tasks.size()) {
             Task task = tasks.get(i);
             assert task != null;
-            output += String.valueOf(i + 1) + ". " + task.toString() + "\n";
+            output += String.valueOf(i + 1) + ". " + task.toString();
             i++;
         }
         return output;
