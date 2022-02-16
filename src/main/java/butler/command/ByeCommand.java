@@ -16,7 +16,7 @@ public class ByeCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, Ui ui) {
-        ui.setMessage("Farewell Master. Glad to be of service.");
+        ui.setMessage("Farewell Master. Glad to be of service. Closing in 2s.");
         ui.setExitStatus();
     }
 }

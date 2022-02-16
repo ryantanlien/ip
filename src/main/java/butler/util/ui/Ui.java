@@ -7,6 +7,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.VBox;
 
 public class Ui {
@@ -27,8 +32,8 @@ public class Ui {
      */
     public Ui() {
         this.status = Status.OPEN;
-        userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-        butlerImage = new Image(this.getClass().getResourceAsStream("/images/DaButler.png"));
+        userImage = new Image(this.getClass().getResourceAsStream("/images/RaidenUser.png"));
+        butlerImage = new Image(this.getClass().getResourceAsStream("/images/DilucButler.png"));
     }
 
     /**

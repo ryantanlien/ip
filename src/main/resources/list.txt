@@ -1,4 +1,6 @@
-1. [T][ ] hello
+1. [D][X] sleep
+ (by: eventually)
 
-2. [T][ ] fix
+2. [E][ ] sleep
+ (at: never)
 
