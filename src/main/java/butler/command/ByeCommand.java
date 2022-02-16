@@ -17,11 +17,6 @@ public class ByeCommand extends Command {
     @Override
     public void execute(TaskList taskList, Storage storage, Ui ui) {
         ui.setMessage("Farewell Master. Glad to be of service.");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
-        }
-        System.exit(0);
+        ui.setExitStatus();
     }
 }

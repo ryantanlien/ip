@@ -1,6 +1,7 @@
 package butler.util.ui;
 
 import butler.Butler;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -14,11 +15,18 @@ public class Ui {
     private String message;
     private final Image userImage;
     private final Image butlerImage;
+    private Status status;
+
+    private enum Status {
+        OPEN,
+        EXITING,
+    }
 
     /**
      * Default Ui Constructor
      */
     public Ui() {
+        this.status = Status.OPEN;
         userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
         butlerImage = new Image(this.getClass().getResourceAsStream("/images/DaButler.png"));
     }
@@ -53,6 +61,14 @@ public class Ui {
         return uiInstance;
     }
 
+    public Status getStatus() {
+        return this.status;
+    }
+
+    public void setExitStatus() {
+        this.status = Status.EXITING;
+    }
+
     protected void handleUserInput(TextField userInput, VBox dialogContainer) {
         Label userText = new Label(userInput.getText());
         userText.setPadding(new Insets(10, 10, 10, 10));
@@ -63,6 +79,9 @@ public class Ui {
                 DialogBox.getButlerDialog(butlerText, new ImageView(butlerImage))
         );
         userInput.clear();
+        if (this.getStatus() == Status.EXITING) {
+            Platform.exit();
+        }
     }
 
     protected void showGreeting(VBox dialogContainer) {

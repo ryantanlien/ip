@@ -102,4 +102,13 @@ public class UiApp extends Application {
         return textToAdd;
     }
     //@@author
+
+    @Override
+    public void stop() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException exception) {
+            exception.printStackTrace();
+        }
+    }
 }
