@@ -2,55 +2,57 @@
 
 ## Features 
 
-### Feature-Task Types
+### Feature- Task Types
 
 Tasks in the application is divided into three different categories:
 
--Todo
--Deadline
--Event
+- Todo
+- Deadline
+- Event
 
-### Feature-Task Completion Status
+### Feature - Task Completion Status
 
 Every task has a completion status completed or not yet completed.
 
 Completed tasks are marked with a cross: `[X]`.
+
 Incomplete tasks are not marked with a cross: `[X]`.
 
-### Feature-Task Ordering
+### Feature - Task Ordering
 
 All tasks are stored in a a single list.
 
 Every task in the list is ordered by natural integers.
+
 The order is according to order of addition to the list, with the lowest in the ordering being the oldest added task.
 
 To obtain the number of each task in the list and what to do with it, refer to `Usage`.
 
-### Feature-Task Date Time
+### Feature - Task Date Time
 
 Specific tasks such as the Deadline and Event task types allow users to add the date-time for future reference.
 
 To find out how to add date-times, refer to `Usage`.
 
-### Feature-Deleting Tasks
+### Feature - Deleting Tasks
 
 A task can be deleted from the task list if it's index is provided.
 
 To find out how to delete tasks, refer to `Usage`.
 
-### Feature-Updating Task Description
+### Feature - Updating Task Description
 
 The description of the tasks in the list can be updated without deleting and re-adding the task.
 
 To find out how to update task descriptions, refer to `Usage`.
 
-### Feature-Finding Matching Task Description
+### Feature - Finding Matching Task Description
 
 One is able to search through all tasks to find tasks that have task descriptions that match the search string.
 
 To find out how to search task descriptions, refer to `Usage`.
 
-### Feature-Saving Tasks
+### Feature - Saving Tasks
 
 The list of tasks is saved in your computer automatically.
 
