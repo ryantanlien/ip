@@ -1,3 +1,0 @@
-T| |hello
-D|X|helpme|sometime
-E| |helpme|eventually
