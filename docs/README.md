@@ -165,7 +165,7 @@ Very well Master, I've marked this task as not done yet:
     [] <insert task description and if applicable task date-time here>
 ```
 
-### `delete` - Mark a task as incomplete.
+### `delete` - Delete a task from the task list.
 
 Calling this action will delete a task at certain index of the task list.
 
@@ -176,8 +176,10 @@ Example of usage:
 Expected outcome:
 
 ```
-Very well Master, I've marked this task as not done yet:
-    [] <insert task description and if applicable task date-time here>
+Noted Master. I'll remove this task from your list.
+    [T][] <insert task description and if applicable task date-time here>
+    
+There are now <insert number of tasks in list here> tasks in your list.
 ```
 
 ### `update` - Update a task's description.
