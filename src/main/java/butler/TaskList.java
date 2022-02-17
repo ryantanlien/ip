@@ -159,7 +159,7 @@ public class TaskList {
     public String deleteTaskFromList(int index) throws ButlerInputException {
         if (index >= tasks.size()) {
             throw new ButlerInputException("Error. Master list item number "
-                    + String.valueOf(index + 1) + "does not exist. \n");
+                    + String.valueOf(index + 1) + " does not exist. \n");
         }
         assert index < tasks.size();
         Task task = tasks.remove(index);
