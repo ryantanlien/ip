@@ -16,7 +16,13 @@ public class Butler {
     public Butler() {
     }
 
+    /**
+     * Loads the TaskList from file Storage and launches the GUI.
+     *
+     * @param args Arguments.
+     */
     public static void main(String[] args) {
+        storage.loadTaskListFromFile(taskList);
         Application.launch(UiApp.class, args);
     }
 

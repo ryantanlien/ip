@@ -38,8 +38,11 @@ public class Deadline extends Task {
      *
      * @return String Representation of dateTime.
      */
-    public String getLocalDateTime() {
-        return this.localDateTime;
+    public String getDateAndTime() {
+        if (!localDateTime.equals("")) {
+            return localDateTime;
+        }
+        return dateAndTime;
     }
 
     /**
@@ -49,9 +52,11 @@ public class Deadline extends Task {
      */
     @Override
     public String toString() {
+        String superString = super.toString();
+        String noNewLineSuper = superString.substring(0, superString.length() - 1);
         if (!localDateTime.equals("")) {
-            return this.getTaskType() + super.toString() + " " + localDateTime;
+            return this.getTaskType() + noNewLineSuper + " (by: " + localDateTime + ")\n";
         }
-        return this.getTaskType() + super.toString() + " (by: " + dateAndTime + ")\n";
+        return this.getTaskType() + noNewLineSuper + " (by: " + dateAndTime + ")\n";
     }
 }

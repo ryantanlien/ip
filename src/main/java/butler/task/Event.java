@@ -34,16 +34,30 @@ public class Event extends Task {
     }
 
     /**
+     * Returns symbolic representation of dateTime.
+     *
+     * @return String Representation of dateTime.
+     */
+    public String getDateAndTime() {
+        if (!localDateTime.equals("")) {
+            return localDateTime;
+        }
+        return dateAndTime;
+    }
+
+    /**
      * Represents Event object as a String
      *
      * @return String Representation of task as a whole.
      */
     @Override
     public String toString() {
+        String superString = super.toString();
+        String noNewLineSuper = superString.substring(0, superString.length() - 1);
         if (!localDateTime.equals("")) {
-            return this.getTaskType() + super.toString() + " " + localDateTime;
+            return this.getTaskType() + noNewLineSuper + " (at: " + localDateTime + ")\n";
         }
-        return this.getTaskType() + super.toString() + " (at: " + dateAndTime + ")\n";
+        return this.getTaskType() + noNewLineSuper + " (at: " + dateAndTime + ")\n";
     }
 }
 

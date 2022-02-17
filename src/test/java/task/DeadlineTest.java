@@ -9,11 +9,10 @@ import butler.task.Deadline;
 public class DeadlineTest {
     @Test
     public void deadlineGetTaskTypeNotFormattableDateTimeReturnTaskTypeString() {
-        Throwable exception = Assertions.assertThrows(ButlerInputException.class,
-                () -> {
-                    Deadline deadline = new Deadline("hello", "Sat 4pm");
-                    Assertions.assertEquals("[D]", deadline.getTaskType());
-                });
+        Throwable exception = Assertions.assertThrows(ButlerInputException.class, () -> {
+            Deadline deadline = new Deadline("hello", "Sat 4pm");
+            Assertions.assertEquals("[D]", deadline.getTaskType());
+        });
 
     }
 }
