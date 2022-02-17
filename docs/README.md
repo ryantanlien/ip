@@ -2,7 +2,7 @@
 
 ## Features 
 
-### Feature- Task Types
+### Feature - Task Types
 
 Tasks in the application is divided into three different categories:
 
@@ -213,6 +213,20 @@ Expected outcome:
 ```
 Here are the matching tasks in your list, Master:
 1. [T][ ] walk more
+```
+
+### `bye` - Close Butler application
+
+Calling this action will close the Butler application.
+
+Example of usage:
+
+`bye`
+
+Expected outcome:
+
+```
+Farewell Master. Glad to be of service. Closing in 2s.
 ```
 
 
