@@ -40,6 +40,7 @@ public class UiApp extends Application {
         mainLayout.getChildren().addAll(scrollPane, userInput, sendButton);
 
         scene = new Scene(mainLayout);
+        scene.getStylesheets().add(getClass().getResource("/style/Ui.css").toExternalForm());
 
         stage.setTitle("Butler");
         stage.setResizable(false);
@@ -48,7 +49,7 @@ public class UiApp extends Application {
 
         mainLayout.setPrefSize(400.0, 600.0);
 
-        scrollPane.setPrefSize(385, 535);
+        scrollPane.setPrefSize(400, 570);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 
