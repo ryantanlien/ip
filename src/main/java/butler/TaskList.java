@@ -71,7 +71,7 @@ public class TaskList {
             throw new ButlerInputException("Error. Sorry Master, "
                     + "but the new description of the task cannot be empty.\n");
         }
-        if (index >= tasks.size()) {
+        if (index >= tasks.size() || index < 0) {
             throw new ButlerInputException("Error. Master, list item number "
                     + String.valueOf(index + 1) + " does not exist.\n");
         }
@@ -157,8 +157,8 @@ public class TaskList {
      * @throws ButlerInputException Throws a ButlerInputException if user input is not satisfactory.
      */
     public String deleteTaskFromList(int index) throws ButlerInputException {
-        if (index >= tasks.size()) {
-            throw new ButlerInputException("Error. Master list item number "
+        if (index >= tasks.size() || index < 0) {
+            throw new ButlerInputException("Error. Master, list item number "
                     + String.valueOf(index + 1) + " does not exist. \n");
         }
         assert index < tasks.size();
@@ -177,7 +177,7 @@ public class TaskList {
      * @throws ButlerInputException Throws a ButlerInputException if user input is not satisfactory.
      */
     public String markAsDone(int index) throws ButlerInputException {
-        if (index >= tasks.size()) {
+        if (index >= tasks.size() || index < 0) {
             throw new ButlerInputException("Error. Master, list item number "
                     + String.valueOf(index + 1) + " does not exist.\n");
         }
@@ -197,7 +197,7 @@ public class TaskList {
      * @throws ButlerInputException Throws a ButlerInputException if user input is not satisfactory.
      */
     public String markAsUndone(int index) throws ButlerInputException {
-        if (index >= tasks.size()) {
+        if (index >= tasks.size() || index < 0) {
             throw new ButlerInputException("Error. Master, list item number "
                     + String.valueOf(index + 1) + " does not exist.\n");
         }
